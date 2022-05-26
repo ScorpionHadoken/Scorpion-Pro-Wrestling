@@ -1,4 +1,3 @@
-
 import pygame as pg
 
 pg.init()
@@ -8,7 +7,8 @@ class Entity(pg.sprite.Sprite):
     def __init__(self, name):
 
         self.name = name
-        self.img = pg.image.load(f"C:\\Users\Dell\Desktop\Scorpion-Pro-Wrestling\Sprites\{self.name}-1.png")
+        self.img = pg.image.load(f"C:\\Users\Dell\Desktop\Scorpion-Pro-Wrestling\Sprites\{self.name}1000.png")
+        self.img.set_colorkey((0, 0, 0))
         self.img = pg.transform.scale(self.img, (75, 75))
         self.x = 10
         self.y = 10
@@ -17,7 +17,7 @@ class Entity(pg.sprite.Sprite):
         self.strgh = 0
         self.spd = 0
         self.P = 0
-        self.walk = [pg.image.load(f"C:\\Users\Dell\Desktop\Scorpion-Pro-Wrestling\Sprites\{self.name}"+str(24)+'.png'), pg.image.load(f"C:\\Users\Dell\Desktop\Scorpion-Pro-Wrestlng\Sprites\{self.name}"+str(25)+'.png')]
+        self.walk = [pg.image.load(f"C:\\Users\Dell\Desktop\Scorpion-Pro-Wrestling\Sprites\{self.name}24.png"), pg.image.load(f"C:\\Users\Dell\Desktop\Scorpion-Pro-Wrestling\Sprites\{self.name}25.png")]
 
         self.atk_frames = [] # Strike
         self.W_grap = [] # Weak Grapple
@@ -47,10 +47,8 @@ class Entity(pg.sprite.Sprite):
 P1 = Entity("The Bruiser")
 
 def identity(self):
+    self.P = self.strgh / 4
     if self.name == "The Bruiser":
         self.weight = 230
         self.strgh = 450
         self.spd = 1.5
-        self.P = self.strgh / 4
-
-identity(P1)
