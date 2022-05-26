@@ -2,6 +2,8 @@ import pygame as pg
 
 from Characters import Entity, P1
 
+import threading
+
 pg.init()
 
 box  = (0, 0, 0, 255)
@@ -10,11 +12,14 @@ screen = pg.display.set_mode((0, 0), pg.FULLSCREEN)
 
 def Strike(self):
     for n in self.atk_frames:
-        pg.draw.rect(screen, box, pg.Rect(self.x, self.y, 50, 50))
+        screen.fill((200, 200, 200))
+
+        n = pg.transform.scale(n, (75, 75))
+        n.set_colorkey((0, 0, 0))
 
         #CheckHit(self)
 
-        screen.blit(self.atk_frames, (self.x, self.y))
+        screen.blit(n, (self.x, self.y))
 
 def CheckHit(self):
     hit = repr(self)
@@ -28,9 +33,13 @@ def CheckHit(self):
 
 def Weak(self):
 
-    for self.W_grap in self.W_grap:
-        pg.draw.rect(screen, box, pg.Rect(self.x, self.y, 50, 50))
+    for t in self.W_grap:
+        screen.fill(200, 200, 200)
+
+        t = pg.transform.scale(t, (75, 75))
+        t.set_colorkey((0, 0, 0))
 
         #CheckHit(self)
 
-        screen.blit(self.W_grap, (self.x, self.y))
+        screen.blit(t, (self.x, self.y))
+
